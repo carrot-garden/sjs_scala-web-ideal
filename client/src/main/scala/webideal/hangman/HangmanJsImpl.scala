@@ -70,7 +70,7 @@ object HangmanJsImpl extends HangmanJs {
           if (Model.level() > 0) {
             Model.start()
             goto(pageGuess)
-          } else dom.alert("Please select level!")
+          } else dom.window.alert("Please select level!")
         })
       )
     )

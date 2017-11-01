@@ -65,7 +65,7 @@ object ChatJsImpl extends ChatJs with JsModuleWithPrickleParams {
         val input = $("#username").value().toString.trim
         if (input.isEmpty) {
           $("#usernameForm").addClass("has-error")
-          dom.alert("Invalid username")
+          dom.window.alert("Invalid username")
         } else {
           $("#usernameForm").removeClass("has-error")
           client = ChatClient.connect(wsBaseUrl, input).map { c =>
@@ -139,7 +139,7 @@ object ChatJsImpl extends ChatJs with JsModuleWithPrickleParams {
           case _ => None
         }
       }).recover({ case e =>
-        dom.alert("Unable to connect because "+e.toString)
+        dom.window.alert("Unable to connect because "+e.toString)
         None
       }).toOption.flatten
     }
@@ -148,7 +148,7 @@ object ChatJsImpl extends ChatJs with JsModuleWithPrickleParams {
       val msgElem = dom.document.getElementById("messages")
       Unpickle[NotifyMessage].fromString(e.data.toString) match {
         case Success(NotifyUserExists()) =>
-          dom.alert("Username already exists")
+          dom.window.alert("Username already exists")
           signOut
         case Success(NotifyJoin(User(username, avatar))) =>
           msgElem.appendChild(createMessage("**joined**", username, avatar).render)
@@ -157,7 +157,7 @@ object ChatJsImpl extends ChatJs with JsModuleWithPrickleParams {
         case Success(NotifyQuit(User(username, avatar))) =>
           msgElem.appendChild(createMessage("**left**", username, avatar).render)
         case Failure(e) =>
-          dom.alert("Failure: " + e)
+          dom.window.alert("Failure: " + e)
           signOut
       }
       if(msgElem.childNodes.length >= maxMessages){

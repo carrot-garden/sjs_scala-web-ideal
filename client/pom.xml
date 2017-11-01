@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.carrotgarden.a</groupId>
+		<artifactId>carrot-a</artifactId>
+		<version>1-SNAPSHOT</version>
+		<relativePath />
+	</parent>
+
+	<groupId>sjs_demo</groupId>
+	<artifactId>sjs_demo-web-client</artifactId>
+	<version>${revision}</version>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.scala-js</groupId>
+			<artifactId>scalajs-library_${projectScalaVersion}</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.scala-js</groupId>
+			<artifactId>scalajs-dom_${projectScalaJsLibrary}</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.lihaoyi</groupId>
+			<artifactId>scalatags_${projectScalaVersion}</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.lihaoyi</groupId>
+			<artifactId>scalatags_${projectScalaJsLibrary}</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>be.doeraene</groupId>
+			<artifactId>scalajs-jquery_${projectScalaJsLibrary}</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.lihaoyi</groupId>
+			<artifactId>scalarx_${projectScalaVersion}</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.lihaoyi</groupId>
+			<artifactId>scalarx_${projectScalaJsLibrary}</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>sjs_demo</groupId>
+			<artifactId>sjs_demo-web-base</artifactId>
+			<version>[0,)</version>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
+
+</project>
